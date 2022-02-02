@@ -1,0 +1,23 @@
+name: publish to nuget
+on:
+  push:
+    branches:
+      - master
+jobs:
+  publish:
+    name: build, pack & publish
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      # Publish
+      - name: publish on version change
+        id: publish_nuget
+        uses: rohith/publish-nuget@v2
+        with:
+          PROJECT_FILE_PATH: TestNuGetAutomationAction/TestNuGetAutomationAction.csproj
+          PACKAGE_NAME: ilhesam.TestNuGetAutomationAction
+          VERSION_FILE_PATH: Directory.Build.props
+          VERSION_REGEX: ^\s*<Version>(.*)<\/Version>\s*$
+          NUGET_KEY: oy2cpsyqio4i443i3erqy2pmvqiw6moepmuba6vpljckzq
+          NUGET_SOURCE: https://api.nuget.org
