@@ -17,7 +17,5 @@ jobs:
         with:
           PROJECT_FILE_PATH: TestNuGetAutomationAction/TestNuGetAutomationAction.csproj
           PACKAGE_NAME: ilhesam.TestNuGetAutomationAction
-          VERSION_FILE_PATH: Directory.Build.props
-          VERSION_REGEX: ^\s*<Version>(.*)<\/Version>\s*$
           NUGET_KEY: oy2cpsyqio4i443i3erqy2pmvqiw6moepmuba6vpljckzq
           NUGET_SOURCE: https://api.nuget.org
